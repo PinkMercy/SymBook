@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+{# {% block title %}Hello {{ name }}!{% endblock %} #}
+{% block body %}
+	<h1>liste des users</h1>
+	<table border="1" class="table">
+		<tr>
+			<th>id :</th>
+			<th>titre :</th>
+			<th>isbn :</th>
+			<th>editeur :</th>
+			<th>dateedition :</th>
+			<th>prix :</th>
+			<th>slug :</th>
+            <th>image :</th>
+            <th>resume :</th>
+            <th>delete</th>
+            <th>edit</th>
+		</tr>
+	
+			<tr>
+<th>
+					{{livres.id}}
+				</th>
+				<th>
+					{{livres.titre|title}}
+				</th>
+				<th>
+					{{livres.isbn}}
+				</th>
+				<th>
+					{{livres.editeur}}
+				</th>
+				<th>
+					{{livres.editedAt|date('d/m/Y')}}
+				</th>
+				<th>
+					{{livres.prix}}
+				</th>
+				<th>
+					{{livres.slug}}
+				</th>
+                <th>
+                    <img src="{{livres.image}}" alt="">
+                </th>
+                <th>
+                    {{livres.resume}}
+                </th>
+				<th>
+					<a href="#" type="button" class="btn btn-danger">supprimer</a>
+				</th>
+				<th>
+					<a href="#" type="button" class="btn btn-primary">edit</a>
+				</th>
+			</tr>
+	
+
+	</table>
+{% endblock %}

@@ -1,44 +1,17 @@
 {% extends "base.html.twig" %}
-{# {% block title %}Hello {{ name }}!{% endblock %} #}
 {% block body %}
-	<h1>liste des livres</h1>
-	<table border="1" class="table">
-		<tr>
-			<th>titre :</th>
-			<th>isbn :</th>
-			<th>editeur :</th>
-			<th>dateedition :</th>
-			<th>prix :</th>
-			<th colspan="3">Action</th>
-			{# <th>detail</th>
-						<th>supprimer</th>
-						<th>edit</th> #}
-		</tr>
+	<h1>Liste des livres</h1>
+	<div style="display: flex; flex-wrap: wrap; gap: 20px;"> {# Added a flex container with wrapping and spacing #}
 		{% for livre in livres %}
-			<tr>
-				<th>
-					{{livre.titre|title}}
-				</th>
-				<th>
-					{{livre.isbn}}
-				</th>
-				<th>
-					{{livre.editeur}}
-				</th>
-				<th>
-					{{livre.editedAt|date('d/m/Y')}}
-				</th>
-				<th>
-					{{livre.prix}}
-				</th>
-				<th>
-					<a href="{{ path('app_voir_livre_detail', {'id': livre.id}) }}" class="btn btn-primary">voir detail</a>
-				</th>
-				<th>
-					<a href="#" type="button" class="btn btn-success">acheter</a>
-				</th>
-			</tr>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top" src="{{ livre.image }}" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">{{ livre.titre|title }}</h5>
+					<p class="card-text">{{ livre.resume }}</p>
+					<a href="{{ path('app_voir_livre_detail', {'id': livre.id}) }}" class="btn btn-primary">Voir Détail</a>
+					<a href="#" type="button" class="btn btn-success">Acheter</a>
+				</div>
+			</div>
 		{% endfor %}
-
-	</table>
+	</div>
 {% endblock %}

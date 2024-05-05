@@ -36,6 +36,23 @@ class LivresRepository extends ServiceEntityRepository
 //        ;
 //    }
 
+ /**
+    
+     *@return Livres[] Returns an array of Livres objects
+     */
+    public function findGreaterThan($prix): array
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.prix > :val')  // Use '>' to find prices greater than the given value
+            ->setParameter('val', $prix)
+            ->orderBy('l.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult();
+    }
+
+    
+
 //    public function findOneBySomeField($value): ?Livres
 //    {
 //        return $this->createQueryBuilder('l')

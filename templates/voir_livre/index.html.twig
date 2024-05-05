@@ -32,13 +32,10 @@
 					{{livre.prix}}
 				</th>
 				<th>
-                    <a href="{{ path('app_admin_livres_show', {'id': livre.id}) }}" class="btn btn-primary">Voir détail</a>
+					<a href="{{ path('app_voir_livre_detail', {'id': livre.id}) }}" class="btn btn-primary">voir detail</a>
 				</th>
 				<th>
-					<a href="#" type="button" class="btn btn-danger">supprimer</a>
-				</th>
-				<th>
-					<a href="#" type="button" class="btn btn-success">edit</a>
+					<a href="#" type="button" class="btn btn-success">acheter</a>
 				</th>
 			</tr>
 		{% endfor %}

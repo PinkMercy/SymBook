@@ -35,10 +35,10 @@
                     <a href="{{ path('app_admin_livres_show', {'id': livre.id}) }}" class="btn btn-primary">Voir détail</a>
 				</th>
 				<th>
-					<a href="#" type="button" class="btn btn-danger">supprimer</a>
+					<a href="{{ path('app_admin_livres_delete', {'id': livre.id}) }}" type="button" class="btn btn-danger">supprimer</a>
 				</th>
 				<th>
-					<a href="#" type="button" class="btn btn-success">edit</a>
+					<a href="{{ path('app_admin_livres_update', {'id': livre.id}) }}" type="button" class="btn btn-success">edit</a>
 				</th>
 			</tr>
 		{% endfor %}
